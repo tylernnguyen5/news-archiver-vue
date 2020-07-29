@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+    <h1>Home Page Component Here</h1>
     
   </div>
 </template>
@@ -10,7 +10,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to News Archiver Home Page'
+
     }
   }
 }

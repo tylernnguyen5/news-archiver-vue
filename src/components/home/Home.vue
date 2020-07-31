@@ -1,13 +1,18 @@
 <template>
   <div class="home">
     <h1>Home Page Component Here</h1>
-    
+    <Calendar />
   </div>
 </template>
 
 <script>
+import Calendar from '@/components/calendar/Calendar'
+
 export default {
   name: 'Home',
+  components: {
+    Calendar
+  },
   data () {
     return {
 

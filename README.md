@@ -61,6 +61,8 @@ Data are screenshots of the news website with the following naming convention: `
 
 ---
 
+### Problems
+
 While working on this project, I encountered a few problems and have documented them at ![problems.md](./problems.md).
 
 This could help somebody who might want to build this idea and just for me to come back to when I want to scale this application a little bit with extra features.

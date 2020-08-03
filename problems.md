@@ -42,5 +42,5 @@ I might be able to fix this when I do the styling for the application.
 
 My initial intention was being able to use `Firebase Admin SDK` in order to simplify the implementation process and package installation. However, the `Admin SDK` is only allowed in the privileged environment. Since the `Vue.js` web app environment is not privileged, I need to use a regular `Web SDK for Firebase`. Otherwise I might expose my credentials to all the users interacting with the application.
 
-*Source: ![](https://stackoverflow.com/questions/51053504/firebase-admin-sdk-vue-webpack-typeerror-rtdb-initstandalone-is-not-a-funct)*
+*![Source](https://stackoverflow.com/questions/51053504/firebase-admin-sdk-vue-webpack-typeerror-rtdb-initstandalone-is-not-a-funct)*
 

@@ -1,3 +1,6 @@
+const firebase = require('firebase');
+require('firebase/storage');
+
 const firebaseConfig = {
   apiKey: "AIzaSyB6MmX9-y2Qrw3Y7x_ADWAgOkbBNHTA1ac",
   authDomain: "newsarchive.firebaseapp.com",
@@ -9,8 +12,7 @@ const firebaseConfig = {
   measurementId: "G-KXDVTXCSN4"
 };
 
-const admin = require('firebase-admin')
-admin.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-module.exports.db = admin.firestore();
-module.exports.bucket = admin.storage().bucket();
+module.exports.db = firebaseApp.firestore();
+module.exports.storage = firebaseApp.storage();

@@ -1,17 +1,20 @@
 <template>
   <div class="home">
     <h1>Home Page Component Here</h1>
-    <Calendar />
+    <!-- <Calendar /> -->
+    <Content />
   </div>
 </template>
 
 <script>
 import Calendar from '@/components/calendar/Calendar'
+import Content from '@/components/content/Content'
 
 export default {
   name: 'Home',
   components: {
-    Calendar
+    Calendar,
+    Content
   },
   data () {
     return {

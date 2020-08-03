@@ -20,14 +20,12 @@ The source code also includes a client app to view data written in **Vue.js**. I
 
 ## My TODOS for Vue
 
-- Install Materialize
-- Design Router
-- Home page
-- Date page
-- Navbar Component
 - Screenshot Component
-- Headlines List Component
+- Headlines Component
+- Home page
+- Design Router
 - History Mode
+- 2 bigger image are not screenshot by Puppeteer
 
 ## Data Structure
 

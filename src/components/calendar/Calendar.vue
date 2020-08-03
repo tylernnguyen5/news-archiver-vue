@@ -35,61 +35,6 @@
         </div>
     </div>
 
-
-    <!-- <div class="dates row" v-for="n in 10" :key="n">{{ n }} </div> -->
-
-<!-- 
-    <div class="dates row">
-        <div class="col s1 offset-s2">5</div>
-        <div class="col s1">6</div>
-        <div class="col s1">7</div>
-        <div class="col s1">8</div>
-        <div class="col s1">9</div>
-        <div class="col s1  offset-s1">10</div>
-        <div class="col s1">11</div>
-    </div>
-
-    <div class="dates row">
-        <div class="col s1 offset-s2">12</div>
-        <div class="col s1">13</div>
-        <div class="col s1">14</div>
-        <div class="col s1">15</div>
-        <div class="col s1">16</div>
-        <div class="col s1  offset-s1">17</div>
-        <div class="col s1">18</div>
-    </div>
-
-    <div class="dates row">
-        <div class="col s1 offset-s2">19</div>
-        <div class="col s1">20</div>
-        <div class="col s1">21</div>
-        <div class="col s1">22</div>
-        <div class="col s1">23</div>
-        <div class="col s1  offset-s1">24</div>
-        <div class="col s1">25</div>
-    </div>
-
-    <div class="dates row">
-        <div class="col s1 offset-s2">19</div>
-        <div class="col s1">20</div>
-        <div class="col s1">21</div>
-        <div class="col s1">22</div>
-        <div class="col s1">23</div>
-        <div class="col s1  offset-s1">24</div>
-        <div class="col s1">25</div>
-    </div>
-
-    <div class="dates row">
-        <div class="col s1 offset-s2">26</div>
-        <div class="col s1">27</div>
-        <div class="col s1">28</div>
-        <div class="col s1">29</div>
-        <div class="col s1">30</div>
-        <div class="col s1  offset-s1">None</div>
-        <div class="col s1">None</div>
-    </div> -->
-
-    <button @click="updateCalendar()">Test</button>
   </div>
 </template>
 
@@ -105,14 +50,7 @@ export default {
             currTime: new Date(),
             startingWeekDay: null,
             daysInMonth: null,
-            calendarArr: [
-                ['', '', '', '', '', '', 1], 
-                [2, 3, 4, 5, 6, 7, 8],
-                [9, 10, 11, 12, 13, 14, 15],
-                [16, 17, 18, 19, 20, 21, 22],
-                [23, 24, 25, 26, 27, 28, 29],
-                [30, 31, '', '', '', '', '']
-            ],
+            calendarArr: [],
         }
     },
     methods: {
@@ -121,36 +59,67 @@ export default {
             this.currTime.setMonth(lastMonth);
             console.log(this.currTime)
 
-            this.getCurrentDatetime();
+            this.updateCurrentDatetime();
         },
         nextMonth() {
             let nextMonth = this.currTime.getMonth() + 1;
             this.currTime.setMonth(nextMonth);
             console.log(this.currTime)
 
-            this.getCurrentDatetime();
+            this.updateCurrentDatetime();
         },
-        getCurrentDatetime() {
+        updateCurrentDatetime() {
+            // Update current date, month, year variables
             this.currentDate = this.currTime.getDate()
             this.currentMonth = this.currTime.toLocaleString('default', { month: 'long' })
             this.currentYear = this.currTime.getFullYear()
+
+            // Update calendar array
+            this.calendarArr = [];
+            this.updateCalendar();
         },
         updateCalendar() { // FIXME: Refactor me
-            // let tmp = new Date(this.currentYear, this.currTime.getMonth(), 1);
-            // console.log("Temp Date: ", tmp);
-
-            // Find the which days of the week in which the 1st day of the month lies on
+            // Update which days of the week in which the 1st day of the month lies on
             this.startingWeekDay = new Date(this.currentYear, this.currTime.getMonth(), 1).getDay();
             console.log("The 1st date is on: ", this.startingWeekDay);  // The first day of the week (0) means "Sunday"
 
-            // Find number of days in the month
+            // Update the number of days in the month
             this.daysInMonth = new Date(this.currentYear, this.currTime.getMonth()+1, 0).getDate();
             console.log("Days in month: ", this.daysInMonth)
+
+            // Update calendar array
+            let weekArr = []
+            let date = 1;
+            let remainder = 36 - this.daysInMonth;
+
+            for (let i = 0; i < 6; i++) {
+                // Build weekArr
+                let weekArr = [];
+
+                for (let j = 0; j < 7; j++) {
+                    if (i == 0 && j < this.startingWeekDay) {    // First week of the month and haven't reached the first date of the month yet
+                        weekArr[j] = '';
+
+                    } else if (date > this.daysInMonth) {    // Last week of the month 
+                        for (let k = 0; k < remainder; k++) {
+                            weekArr.push('');  // Fill the remaining days of the week with empty spaces when reaching the number of days in that month
+                        }
+                        break;
+
+                    } else {
+                        weekArr[j] = date;
+                        date++;
+
+                    }
+
+                    this.calendarArr[i] = weekArr;
+                }
+            }
+            console.log("Calendar Array: ", this.calendarArr);   
         }
     },
     created() {
-        this.getCurrentDatetime();
-        this.updateCalendar();
+        this.updateCurrentDatetime();
     }
 }
 </script>

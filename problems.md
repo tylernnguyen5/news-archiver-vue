@@ -1,6 +1,6 @@
 # Problems while working on the project
 
-### Puppeteer and Chromium on Google Cloud Function
+## Puppeteer and Chromium on Google Cloud Function
 
 While working on the project, I encountered a problem where the Puppeteer cannot be correctly executed when running on Google Cloud Function due to **the incompatibility between the version of Puppeteer and Chromium on the Google Cloud Platform**.
 
@@ -26,21 +26,21 @@ Error with launching Puppeteer browser: TimeoutError: Timed out after 30000 ms w
 - *Puppeteer can be launched from Cloud Function, but no page content was retrieved*
 - **RESOLVED:** *Downgraded to Nodejs Engine 10 + puppeteer@5.2.1 + No incognito context + Removing `[--'no-sandbox', '--disable-setuid-sandbox']` from launch configuration*
 
-### Saving screenshots
+## Saving screenshots
 
 My initial approach was to create a `screenshots` directory in Google Cloud Functions runtime, but after a few deployments, I found out that the only one directory that is writable by my code is the `/tmp` directory. 
 
 Therefore, I decided to create the `screenshots` in `/tmp` to store my screenshot(s). The `/tmp` would be emptied after the excecution is finalized.
 
-### Implement calendar from scratch
+## Implement calendar from scratch
 
 This took a little bit of time, but I managed to complete it. However, since `Materialize CSS` has a **12-column Grid System** and I have *7 columns for 7 days in a week*, I have not been able to center the component. This is one of the downsides of `Materializee CSS` compared to `Bootstrap`, which addressed this problem in their recent package releases.
 
 I might be able to fix this when I do the styling for the application.
 
-### Using Firebase Admin SDK
+## Using Firebase Admin SDK
 
 My initial intention was being able to use `Firebase Admin SDK` in order to simplify the implementation process and package installation. However, the `Admin SDK` is only allowed in the privileged environment. Since the `Vue.js` web app environment is not privileged, I need to use a regular `Web SDK for Firebase`. Otherwise I might expose my credentials to all the users interacting with the application.
 
-*Source: !(https://stackoverflow.com/questions/51053504/firebase-admin-sdk-vue-webpack-typeerror-rtdb-initstandalone-is-not-a-funct)*
+*Source: ![](https://stackoverflow.com/questions/51053504/firebase-admin-sdk-vue-webpack-typeerror-rtdb-initstandalone-is-not-a-funct)*
 

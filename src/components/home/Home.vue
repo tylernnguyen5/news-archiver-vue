@@ -2,19 +2,22 @@
   <div class="home">
     <h1>Home Page Component Here</h1>
     <!-- <Calendar /> -->
-    <Content />
+    <!-- <Content /> -->
+    <Footer />
   </div>
 </template>
 
 <script>
 import Calendar from '@/components/calendar/Calendar'
 import Content from '@/components/content/Content'
+import Footer from '@/components/layout/Footer'
 
 export default {
   name: 'Home',
   components: {
     Calendar,
-    Content
+    Content,
+    Footer
   },
   data () {
     return {

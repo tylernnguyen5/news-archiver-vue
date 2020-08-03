@@ -2,12 +2,14 @@
   <div class='content container'>
       <h1>Today Archive</h1>
 
+      <button @click="updateContent()">Test</button>
+
       <div class="screenshot" v-for="(link, index) in screenshots" :key="index">
         <img :src="link">
       </div>
 
-      <div class="headlines" v-for="(headline, index) in headlines" :key="index">
-          <li>{{ headline.headline }}</li>
+      <div class="headlines" v-for="headline in headlines" :key="headline.id">
+        <div>{{ headline.headline }}</div>
       </div>
 
   </div>
@@ -21,56 +23,77 @@ export default {
     data() {
         return {
             headlines: [],
-            screenshots: []
+            screenshots: [],
+            currTime: new Date(2020, 6, 29) // FIXME: Edit currTime
         }
     },
     methods: {
-        getHeadlines() { // FIXME:
+        getHeadlines(date) { 
+
+            // Retrive data from Firestore
             db.collection('cnn')
-                .get()
-                .then((snapshot) => {
-                    snapshot.docs.forEach( doc => {
-                        console.log(doc.id); 
-                        console.log(doc.data().headline);
-                        console.log(doc.data().url);
-                        console.log(doc.data().timestamp);
-                    })
-                })
-                .catch(err => console.log('Error getting documents from Firestore', err));
+            .get()
+            .then(snapshot => snapshot.docs.forEach(doc => {
+                let timestamp = doc.data().timestamp.toDate();
+                timestamp.setHours(0, 0, 0, 0);
+
+                // Filter data with the specified date
+                let passed = timestamp.valueOf() === date.valueOf();   
+
+                if (passed) {
+                    let element = {
+                        id: doc.id,
+                        headline: doc.data().headline,
+                        timestamp: doc.data().timestamp,
+                        url: doc.data().url,
+                    };
+
+                    this.headlines.push(element);
+                }
+            }))
+            .catch(err => console.log(err));
+
+            console.log("Headlines: ", this.headlines); 
         },
+
         async getScreenshot(date) {
-            console.log("Getting screenshot");
-            // console.log(date);
 
             // Reference to cloud storage
             let storageRef = storage.ref("screenshots/cnn");
 
-            // List all screenshots
-            storageRef.listAll().then(res => {
-                // Filter the screenshots with the specified date (via 'timeCreated' metadata of the image)
-                res.items.filter(itemRef => {
-                    itemRef.getMetadata().then(metadata => {
+            storageRef.listAll().then(res => {  // List all screenshots
+
+                // Filter screenshots with the specified date
+                res.items.forEach(async itemRef => {
+                    let passed = await itemRef.getMetadata().then(metadata => {
                         let timeCreated = new Date(metadata.timeCreated);
                         timeCreated.setHours(0, 0, 0, 0)
 
-                        // FIXME: delete logging
-                        // console.log("timeCreated: ", timeCreated);
-                        // console.log("date: ", date);
                         return timeCreated.valueOf() === date.valueOf();
                     })
-                })
 
-                // Obtain the Cloud Storage links to the screenshots
-                res.items.forEach(async itemRef => {
-                    let url = await itemRef.getDownloadURL();
-                    this.screenshots.push(url);
+                    if (passed) {
+                        let url = await itemRef.getDownloadURL();
+                        this.screenshots.push(url);
+                    }
+
                 });
             }).catch(err => console.log(err));
+
+            console.log("Screenshots: ", this.screenshots)
+        },
+
+        updateContent() {
+            this.headlines = [];
+            this.screenshots = [];
+
+            this.getScreenshot(this.currTime);
+            this.getHeadlines(this.currTime);
         }
     },
+    // Hooks
     created() {
-        // this.getScreenshot(new Date(2020, 6, 29));
-        // this.getHeadlinesData();
+        this.updateContent();
     }
 }
 </script>

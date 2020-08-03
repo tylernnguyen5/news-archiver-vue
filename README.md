@@ -20,9 +20,13 @@ The source code also includes a client app to view data written in **Vue.js**. I
 
 ## My TODOS for Vue
 
-- Screenshot Component
-- Headlines Component
-- Home page
+**STYLING**
+- Calendar
+- Screenshot
+- Headlines
+- Tabs
+
+- My Info - Footer
 - Design Router
 - History Mode
 - 2 bigger image are not screenshot by Puppeteer
@@ -53,6 +57,13 @@ Data are screenshots of the news website with the following naming convention: `
 - Cheerio
 - Vue.js
 - GCP (App Engine, Cloud Scheduler, Pub/Sub)
+- Materialize CSS
+
+---
+
+While working on this project, I encountered a few problems and have documented them at ![problems.md](./problems.md).
+
+This could help somebody who might want to build this idea and just for me to come back to when I want to scale this application a little bit with extra features.
 
 ---
 

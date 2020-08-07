@@ -1,10 +1,15 @@
 <template>
   <div class="navbar">
-    <nav class="">
+    <div class="navbar-fixed">
+      <nav>
         <div class="container">
+          <div class="nav-wrapper">
+            <!-- Logo -->
             <router-link class="brand-logo center" :to="{ name: 'Home' }">News Archiver App</router-link>
+          </div>
         </div>
-    </nav>
+      </nav>
+    </div>
   </div>
 </template>
 
@@ -15,6 +20,10 @@ export default {
         return {
 
         }
+    },
+    mounted() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
     }
 }
 </script>

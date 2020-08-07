@@ -55,3 +55,7 @@ I had some problems while trying to rendering some interactive and animated comp
 Even though I do scrape the correct link from each headline on CNN website, it is inaccessible with the link from my web application. To examine this issue, I have carefully compare the link that I stored in the database and the link of the article which I access directly from CNN website. They are identical.
 
 A therotical possibility is that CNN prevents this action in order to conserve their legitimacy and validity of their sources of infomation.
+
+## Sidenav
+
+As first, I wanted to have a sidebar to have a calendar in it. As I learned about the sidenav, it is very limited to what you can put in the sidenav, the size of it and how it is laid out on the page. Materialize is quite new, so I think they will probably update this in the future.

@@ -22,17 +22,14 @@ The source code also includes a client app to view data written in **Vue.js**. I
 
 **STYLING**
 
-- Slider for screenshots
-- Scrollable list for headlines
-- Sidebar
 - Datepicker
 - Preloader
-- Hoverable
-- <p class="z-depth-5">z-depth-5</p>
+- <p class="z-depth-5">z-depth-5</p> shadow
 
 - Design Router
 - History Mode
 - Bigger height for screenshot
+- Smaller saved screenshot
 
 ## Data Structure
 

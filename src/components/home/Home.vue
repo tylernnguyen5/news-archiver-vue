@@ -5,7 +5,7 @@
 
     <Content />
 
-    <!-- <Footer /> -->
+    <Footer />
   </div>
 </template>
 

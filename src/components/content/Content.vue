@@ -1,26 +1,29 @@
 <template>
   <div class='content container'>
+    <!-- Datepicker -->
+
+    
 
     <!-- Screenshot -->
-    <div class="slider">
+    <!-- <div class="slider">
         <ul class="slides">
             <li v-for="(link, index) in screenshots" :key="index">
-                <img height="400" :src="link">
+                <img :src="link">
             </li>
         </ul>
-    </div>
+    </div> -->
 
     <!-- Headlines -->
-    <div class="section">
+    <!-- <div class="section">
         <ul class="collection">
-            <li class="collection-item left-align" v-for="headline in headlines" :key="headline.id">
+            <li class="collection-item left-align hoverable" v-for="headline in headlines" :key="headline.id">
                 <a class="headline" :href="headline.url" target="_blank">
                     <b>{{ headline.headline }}</b>
                 </a>
                 <p class="timestamp">{{ headline.timestamp.toDate() }}</p>
             </li>
         </ul>
-    </div>
+    </div> -->
     
   </div>
 </template>
@@ -115,13 +118,13 @@ export default {
         console.log("mounted() Hook");
 
         var elems = document.querySelectorAll('.slider');
-        var instances = M.Slider.init(elems, {indicators: true});
+        var instances = M.Slider.init(elems, {indicators: true, height: 600});
     },
     updated() {
         console.log("udpated() Hook");
 
         var elems = document.querySelectorAll('.slider');
-        var instances = M.Slider.init(elems, {indicators: true});
+        var instances = M.Slider.init(elems, {indicators: true, height: 600});
     }
 }
 </script>

@@ -1,9 +1,11 @@
 <template>
   <div class="home">
-    <h1>Home Page Component Here</h1>
+    <h1>Home Component</h1>
     <!-- <Calendar /> -->
-    <!-- <Content /> -->
-    <Footer />
+
+    <Content />
+
+    <!-- <Footer /> -->
   </div>
 </template>
 

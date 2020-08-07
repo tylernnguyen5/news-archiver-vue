@@ -21,15 +21,18 @@ The source code also includes a client app to view data written in **Vue.js**. I
 ## My TODOS for Vue
 
 **STYLING**
-- Calendar
-- Screenshot
-- Headlines
-- Tabs
 
-- My Info - Footer
+- Slider for screenshots
+- Scrollable list for headlines
+- Sidebar
+- Datepicker
+- Preloader
+- Hoverable
+- <p class="z-depth-5">z-depth-5</p>
+
 - Design Router
 - History Mode
-- 2 bigger image are not screenshot by Puppeteer
+- Bigger height for screenshot
 
 ## Data Structure
 

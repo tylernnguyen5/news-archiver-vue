@@ -1,17 +1,27 @@
 <template>
   <div class='content container'>
-      <h1>Today Archive</h1>
 
-      <button @click="updateContent()">Test</button>
+    <!-- Screenshot -->
+    <div class="slider">
+        <ul class="slides">
+            <li v-for="(link, index) in screenshots" :key="index">
+                <img height="400" :src="link">
+            </li>
+        </ul>
+    </div>
 
-      <div class="screenshot" v-for="(link, index) in screenshots" :key="index">
-        <img :src="link">
-      </div>
-
-      <div class="headlines" v-for="headline in headlines" :key="headline.id">
-        <div>{{ headline.headline }}</div>
-      </div>
-
+    <!-- Headlines -->
+    <div class="section">
+        <ul class="collection">
+            <li class="collection-item left-align" v-for="headline in headlines" :key="headline.id">
+                <a class="headline" :href="headline.url" target="_blank">
+                    <b>{{ headline.headline }}</b>
+                </a>
+                <p class="timestamp">{{ headline.timestamp.toDate() }}</p>
+            </li>
+        </ul>
+    </div>
+    
   </div>
 </template>
 
@@ -24,7 +34,7 @@ export default {
         return {
             headlines: [],
             screenshots: [],
-            currTime: new Date(2020, 6, 29) // FIXME: Edit currTime
+            currTime: new Date(2020, 7, 7) // FIXME: Edit currTime
         }
     },
     methods: {
@@ -89,15 +99,39 @@ export default {
 
             this.getScreenshot(this.currTime);
             this.getHeadlines(this.currTime);
+        },
+
+        reinit() {
+            var elems = document.querySelectorAll('.slider');
+            var instances = M.Slider.init(elems, {indicators: true});
         }
     },
     // Hooks
     created() {
-        this.updateContent();
+        console.log("created() Hook");
+        this.updateContent();        
+    },
+    mounted() { // FIXME: might remove
+        console.log("mounted() Hook");
+
+        var elems = document.querySelectorAll('.slider');
+        var instances = M.Slider.init(elems, {indicators: true});
+    },
+    updated() {
+        console.log("udpated() Hook");
+
+        var elems = document.querySelectorAll('.slider');
+        var instances = M.Slider.init(elems, {indicators: true});
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+.headline{
+    font-size: 1.25em;
+}
+.timestamp{
+    font-size: 0.75em;
+    font-style: italic;
+}
 </style>

@@ -59,3 +59,7 @@ A therotical possibility is that CNN prevents this action in order to conserve t
 ## Sidenav
 
 As first, I wanted to have a sidebar to have a calendar in it. As I learned about the sidenav, it is very limited to what you can put in the sidenav, the size of it and how it is laid out on the page. Materialize is quite new, so I think they will probably update this in the future.
+
+## Datepicker
+
+When I implemented the calendar from scratch, I didn't know that Materialize support a dedicated calendar component. Therefore my implementation is redundant. However, it was a good practice with array manipulation and Materialize Grid System.

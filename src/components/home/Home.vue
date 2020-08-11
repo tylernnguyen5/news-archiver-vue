@@ -1,22 +1,17 @@
 <template>
   <div class="home">
-    
-
     <Content />
-
     <Footer />
   </div>
 </template>
 
 <script>
-import Calendar from '@/components/calendar/Calendar'
 import Content from '@/components/content/Content'
 import Footer from '@/components/layout/Footer'
 
 export default {
   name: 'Home',
   components: {
-    Calendar,
     Content,
     Footer
   },

@@ -6,8 +6,6 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-// FIXME: might not need
-const bus = new Vue();
 
 /* eslint-disable no-new */
 new Vue({

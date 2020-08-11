@@ -23,7 +23,7 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
+                <a class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
             </div>
         </div>
 
@@ -39,17 +39,16 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
+                <a class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
             </div>
         </div>
 
 		<!-- Datepicker -->
-		<div class="input-field inline red lighten-3">
+		<div class="input-field inline red lighten-3 hoverable">
 			<i class="material-icons prefix">calendar_today</i>
 			<input type="text" class="datepicker centen-align white-text">
 		</div>
 		
-
 		<!-- Screenshot -->
 		<div class="slider" v-if="screenshots.length != 0">
 			<ul class="slides">
@@ -86,8 +85,7 @@ export default {
         return {
             headlines: [],
             screenshots: [],
-            currTime: new Date() // FIXME: Edit currTime
-            // currTime: new Date(2020, 7, 7) // FIXME: Edit currTime
+            currTime: new Date()
         }
     },
     methods: {
@@ -173,10 +171,10 @@ export default {
         console.log("created() Hook");
         this.updateContent();        
 	},
-    mounted() { // FIXME: might remove
+    mounted() {
         console.log("mounted() Hook");
 
-		// Modal initialization
+		// Modals initialization
         let modal = document.querySelectorAll('.modal');
         let modalIntances = M.Modal.init(modal);
 

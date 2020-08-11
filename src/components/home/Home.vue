@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <h1>Home Component</h1>
-    <!-- <Calendar /> -->
+    
 
     <Content />
 
@@ -30,7 +29,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 .home{
   text-align: center;
 }

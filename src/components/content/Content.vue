@@ -1,12 +1,54 @@
 <template>
 	<div class='content container'>
-		<button @click="logging()">Logging</button>
-		
-		<!-- Datepicker -->
+        <!-- Modal Trigger -->
+        <div class="row">
+            <div class="col s3 offset-s3">
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Instruction</a>
+            </div>
+            <div class="col s3">
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal2">How it works</a>
+            </div>
+        </div>
 
-		<div class="calendar">
-			<input type="text" class="datepicker">
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Instruction</h4>
+                <hr>
+                <p>
+                    I have have archived the screenshots and headlines on CNN News website <b>from ___ to ___</b>
+                    <br>
+                    <br>
+                    Please pick a date from the calendar below to view the archives on the selected date.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <h4>How it works</h4>
+                <hr>
+                <p>
+                    This is an application that archives the news headlines, theirs URLs and a screenshot of the home page in a cloud storage, so that you can view them all at once when you are free in the day.
+                    <br>
+                    <br>
+                    The application involves an underlying Scheduled Cloud Function that is executed <b>every 15 minutes</b> and uses <b>Puppeteer</b> to scrape data from CNN News website. In terms of data, the headlines and URLs are stored in Firestore, and the screenshots are stored in Cloud Storage  with <b>Firebase</b>.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Dismiss</a>
+            </div>
+        </div>
+
+		<!-- Datepicker -->
+		<div class="input-field inline red lighten-3">
+			<i class="material-icons prefix">calendar_today</i>
+			<input type="text" class="datepicker centen-align white-text">
 		</div>
+		
 
 		<!-- Screenshot -->
 		<div class="slider" v-if="screenshots.length != 0">
@@ -15,6 +57,9 @@
 					<img :src="link">
 				</li>
 			</ul>
+		</div>
+		<div class="feedback red-text card-panel center-align" v-else>
+			Sorry, there is no archive for this date.
 		</div>
 
 		<!-- Headlines -->
@@ -122,7 +167,7 @@ export default {
 			this.updateContent()
 		},
 	},
-	
+
     // Hooks
     created() {
         console.log("created() Hook");
@@ -130,6 +175,10 @@ export default {
 	},
     mounted() { // FIXME: might remove
         console.log("mounted() Hook");
+
+		// Modal initialization
+        let modal = document.querySelectorAll('.modal');
+        let modalIntances = M.Modal.init(modal);
 
 		// Slider initialization
         let slider = document.querySelectorAll('.slider');
@@ -165,5 +214,15 @@ export default {
 .timestamp{
     font-size: 0.75em;
     font-style: italic;
+}
+.feedback{
+	padding-top: 1.5em;
+	font-size: 2em;
+}
+i{
+  filter: invert(96%) sepia(96%) saturate(0%) hue-rotate(66deg) brightness(103%) contrast(107%);
+}
+.row{
+    padding-top: 2em;
 }
 </style>

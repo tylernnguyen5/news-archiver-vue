@@ -152,14 +152,9 @@ export default {
             this.getHeadlines(this.currTime);
         },
 
-        logging() { // FIXME: delete
-			console.log('Current Time: ', this.currTime);
-			
-			let instance = M.Datepicker.getInstance(document.querySelector('.datepicker'));
-			console.log('Picker Date: ', instance.date);
-			console.log('Picker Options: ', instance.options);
-		},
-	},
+    },
+    
+    // Watcher
 	watch: {
 		'currTime': function() {
 			this.updateContent()

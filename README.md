@@ -34,7 +34,7 @@ data: {
 
 **For Cloud Storage**
 
-Data are screenshots of the news website with the following naming convention: `cnn-2020-07-27--08-12-42.png`
+Data are screenshots of the news website with the following naming convention: `cnn-2020-07-27--08-12-42.jpeg`
 
 ---
 

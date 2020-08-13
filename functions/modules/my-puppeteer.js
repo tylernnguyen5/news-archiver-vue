@@ -10,10 +10,9 @@ module.exports.scrapeAndScreenshot = async function () {
 
 	const page = await browser.newPage();
 
-	await page.setViewport({
-		// Standard viewport size
+	await page.setViewport({	// Set viewport size
 		width: 1400,
-		height: 800,
+		height: 900,
 		isLandscape: true,
 	});
 
@@ -61,9 +60,8 @@ module.exports.scrapeAndScreenshot = async function () {
 			type: 'jpeg',
 		})
 		.catch((err) => console.log(err));
-	console.log('Took screenshot(s)'); // FIXME: remove logging
+	console.log('Took screenshot(s)');
 
-	// FIXME: Return data
 	const data = {
 		headlines,
 		filename,

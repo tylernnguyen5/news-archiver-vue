@@ -39,6 +39,8 @@
 </template>
 
 <script>
+// This was implemented but not used!
+
 export default {
     name: 'Calendar',
     data() {

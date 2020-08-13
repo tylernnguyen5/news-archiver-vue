@@ -1,8 +1,0 @@
-<div class="carousel center screenshot">
-    <!-- <a class="carousel-item" v-for="(link, index) in screenshots" :key="index" :href="link">
-        <img height="400" :src="link">
-    </a> -->
-    
-    <img class="carousel-item" v-for="(link, index) in screenshots" :key="index" height="400" :src="link">
-</div>
-

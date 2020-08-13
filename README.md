@@ -6,7 +6,7 @@ This is a **Vue.js** full-stack project I've been working on. I utilise the free
 
 The application is hosted on Firebase: ![](https://newsarchive.web.app)
 
-![wireframe](./wireframe.jpg)
+![demo](./demo.jpg)
 
 ## Scenario
 

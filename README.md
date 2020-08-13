@@ -2,9 +2,9 @@
 
 ## Description
 
-This is a **Vue.js** full-stack project I've been working on. I utilise the free tier for Google Cloud APIs and Services that are available on **Firebase**.
+This is a **Vue.js** full-stack project which I utilise the free tier of Google Cloud APIs and Services that are available on **Firebase**.
 
-The application is hosted on Firebase: ![](https://newsarchive.web.app)
+The application is hosted on Firebase at: <https://newsarchive.web.app>
 
 ![demo](./demo.jpg)
 

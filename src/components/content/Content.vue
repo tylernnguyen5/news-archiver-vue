@@ -16,7 +16,7 @@
                 <h4>Instruction</h4>
                 <hr>
                 <p>
-                    I have have archived the screenshots and headlines on CNN News website <b>from ___ to ___</b>
+                    I have have archived the screenshots and headlines on CNN News website <b>from 13th August to ___</b>
                     <br>
                     <br>
                     Please pick a date from the calendar below to view the archives on the selected date.
@@ -35,7 +35,7 @@
                     This is an application that archives the news headlines, theirs URLs and a screenshot of the home page in a cloud storage, so that you can view them all at once when you are free in the day.
                     <br>
                     <br>
-                    The application involves an underlying Scheduled Cloud Function that is executed <b>every 15 minutes</b> and uses <b>Puppeteer</b> to scrape data from CNN News website. In terms of data, the headlines and URLs are stored in Firestore, and the screenshots are stored in Cloud Storage  with <b>Firebase</b>.
+                    The application involves an underlying Scheduled Cloud Function that is executed <b>every 2 hours</b> and uses <b>Puppeteer</b> to scrape data from CNN News website. In terms of data, the headlines and URLs are stored in Firestore, and the screenshots are stored in Cloud Storage  with <b>Firebase</b>.
                 </p>
             </div>
             <div class="modal-footer">
@@ -58,7 +58,7 @@
 			</ul>
 		</div>
 		<div class="feedback red-text card-panel center-align" v-else>
-			Sorry, there is no archive for this date.
+			Sorry, there is currently no archive here.
 		</div>
 
 		<!-- Headlines -->
@@ -152,14 +152,9 @@ export default {
             this.getHeadlines(this.currTime);
         },
 
-        logging() { // FIXME: delete
-			console.log('Current Time: ', this.currTime);
-			
-			let instance = M.Datepicker.getInstance(document.querySelector('.datepicker'));
-			console.log('Picker Date: ', instance.date);
-			console.log('Picker Options: ', instance.options);
-		},
-	},
+    },
+    
+    // Watcher
 	watch: {
 		'currTime': function() {
 			this.updateContent()
@@ -191,7 +186,6 @@ export default {
 				let instance = M.Datepicker.getInstance(document.querySelector('.datepicker'));
 				this.currTime = instance.date;
 			},
-			setDefaultDate: true,
 			defaultDate: this.currTime,
 		});
     },

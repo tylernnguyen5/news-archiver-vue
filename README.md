@@ -1,8 +1,8 @@
 # News Archiver
 
-## Description
-
 This is a **Vue.js** full-stack project which I utilise the free tier of Google Cloud APIs and Services that are available on **Firebase**.
+
+## Live Demo
 
 The application is hosted on Firebase at: <https://newsarchive.web.app>
 

@@ -16,7 +16,7 @@
                 <h4>Instruction</h4>
                 <hr>
                 <p>
-                    I have have archived the screenshots and headlines on CNN News website <b>from 13th August to ___</b>
+                    I have have archived the screenshots and headlines on CNN News website <b>from 13th August to 26th August 2020</b>
                     <br>
                     <br>
                     Please pick a date from the calendar below to view the archives on the selected date.
@@ -32,7 +32,7 @@
                 <h4>How it works</h4>
                 <hr>
                 <p>
-                    This is an application that archives the news headlines, theirs URLs and a screenshot of the home page in a cloud storage, so that you can view them all at once when you are free in the day.
+                    This is an application that archives the news headlines, theirs URLs and a screenshot of the home page in a cloud storage, so that you can view them all at once whenever you are free in the day.
                     <br>
                     <br>
                     The application involves an underlying Scheduled Cloud Function that is executed <b>every 2 hours</b> and uses <b>Puppeteer</b> to scrape data from CNN News website. In terms of data, the headlines and URLs are stored in Firestore, and the screenshots are stored in Cloud Storage  with <b>Firebase</b>.
@@ -44,9 +44,9 @@
         </div>
 
 		<!-- Datepicker -->
-		<div class="input-field inline red lighten-3 hoverable">
+		<div class="input-field inline hoverable">
 			<i class="material-icons prefix">calendar_today</i>
-			<input type="text" class="datepicker centen-align white-text">
+			<input type="text" class="datepicker center-align white-text">
 		</div>
 		
 		<!-- Screenshot -->
@@ -211,10 +211,13 @@ export default {
 	padding-top: 1.5em;
 	font-size: 2em;
 }
-i{
-  filter: invert(96%) sepia(96%) saturate(0%) hue-rotate(66deg) brightness(103%) contrast(107%);
-}
 .row{
     padding-top: 2em;
+}
+.modal{
+    border-radius: 10px;
+}
+.modal-trigger{
+    border-radius: 7.5px;
 }
 </style>

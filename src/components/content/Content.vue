@@ -46,7 +46,7 @@
 		<!-- Datepicker -->
 		<div class="input-field inline hoverable">
 			<i class="material-icons prefix">calendar_today</i>
-			<input type="text" class="datepicker center-align white-text">
+			<input type="text" class="datepicker center-align">
 		</div>
 		
 		<!-- Screenshot -->
